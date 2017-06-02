@@ -1,11 +1,15 @@
 package net.miladinov.poker.models
 
-sealed abstract class Value (val intValue: Int) { }
+sealed abstract class Value (val intValue: Int) {
+  // class name without the magic dollar signs
+  def singular: String = getClass.getSimpleName.replaceAllLiterally("$", "")
+  def plural: String = singular + "s"
+}
 case object Two   extends Value(2)
 case object Three extends Value(3)
 case object Four  extends Value(4)
 case object Five  extends Value(5)
-case object Six   extends Value(6)
+case object Six   extends Value(6) { override def plural: String = singular + "es" }
 case object Seven extends Value(7)
 case object Eight extends Value(8)
 case object Nine  extends Value(9)

@@ -1,4 +1,4 @@
-package net.miladinov.poker
+package net.miladinov.poker.models
 
 case class Hand (player: String, cards: Set[Card]) { }
 

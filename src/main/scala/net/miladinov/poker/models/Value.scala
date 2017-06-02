@@ -1,4 +1,4 @@
-package net.miladinov.poker
+package net.miladinov.poker.models
 
 sealed abstract class Value (val intValue: Int) { }
 case object Two   extends Value(2)

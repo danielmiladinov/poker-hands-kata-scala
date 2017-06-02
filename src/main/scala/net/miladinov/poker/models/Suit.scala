@@ -1,4 +1,4 @@
-package net.miladinov.poker
+package net.miladinov.poker.models
 
 sealed trait Suit { val letter: String = toString.substring(0, 1) }
 case object Diamonds extends Suit

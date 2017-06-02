@@ -1,4 +1,4 @@
-package net.miladinov.poker
+package net.miladinov.poker.models
 
 case class Card (value: Value, suit: Suit) {
   override def toString: String = {

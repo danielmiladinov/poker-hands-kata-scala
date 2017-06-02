@@ -1,4 +1,4 @@
-package net.miladinov.poker
+package net.miladinov.poker.models
 
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{FlatSpec, Matchers}

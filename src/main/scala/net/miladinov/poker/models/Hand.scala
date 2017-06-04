@@ -1,7 +1,9 @@
 package net.miladinov.poker.models
 
 case class Hand (player: String, cards: Set[Card]) {
-  def cardsGroupedByValue: Map[Value, Set[Card]] = cards.groupBy(_.value)
+  def cardsByValueWithCounts: Map[(Value, Int), Set[Card]] = {
+    cards.groupBy(_.value).map({ case (v, cs) => ((v, cs.size), cs) })
+  }
 }
 
 object Hand {

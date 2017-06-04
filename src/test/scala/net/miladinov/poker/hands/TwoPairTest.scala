@@ -100,12 +100,12 @@ class TwoPairTest extends FlatSpec with Matchers with TableDrivenPropertyChecks 
   )
   
   val notTwoPairs = Table(
-    ("Label",      "Invalid Two of a Kind"),
-    ("Three Twos", Hand("Player", Set(Card("2H"), Card("2S"), Card("3C"), Card("2D"), Card("KH")))),
-    ("Straight",   Hand("Player", Set(Card("4H"), Card("5S"), Card("6C"), Card("8D"), Card("7H")))),
-    ("Flush",      Hand("Player", Set(Card("9D"), Card("TD"), Card("JD"), Card("AD"), Card("3D")))),
-    ("Full House", Hand("Player", Set(Card("TS"), Card("TH"), Card("TC"), Card("AD"), Card("AS")))),
-    ("Four Jacks", Hand("Player", Set(Card("JD"), Card("JC"), Card("JH"), Card("AC"), Card("JS"))))
+    ("Label",               "Invalid Two of a Kind"),
+    ("Three Twos",          Hand("Player", Set(Card("2H"), Card("2S"), Card("3C"), Card("2D"), Card("KH")))),
+    ("Eight-high Straight", Hand("Player", Set(Card("4H"), Card("5S"), Card("6C"), Card("8D"), Card("7H")))),
+    ("Flush",               Hand("Player", Set(Card("9D"), Card("TD"), Card("JD"), Card("AD"), Card("3D")))),
+    ("Full House",          Hand("Player", Set(Card("TS"), Card("TH"), Card("TC"), Card("AD"), Card("AS")))),
+    ("Four Jacks",          Hand("Player", Set(Card("JD"), Card("JC"), Card("JH"), Card("AC"), Card("JS"))))
   )
 
   forAll (twoPairs) { (label: String, hand: Hand) => {

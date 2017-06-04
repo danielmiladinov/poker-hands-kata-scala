@@ -24,11 +24,11 @@ class FourOfAKindTest extends FlatSpec with Matchers with TableDrivenPropertyChe
   )
 
   val notFoursOfAKind = Table(
-    ("Label",        "Invalid Three of a Kind"),
-    ("Pair of Twos", Hand("Player", Set(Card("2H"), Card("2S"), Card("3C"), Card("AD"), Card("KH")))),
-    ("Straight",     Hand("Player", Set(Card("4H"), Card("5S"), Card("6C"), Card("8D"), Card("7H")))),
-    ("Flush",        Hand("Player", Set(Card("9D"), Card("TD"), Card("JD"), Card("AD"), Card("3D")))),
-    ("Full House",   Hand("Player", Set(Card("TS"), Card("TH"), Card("TC"), Card("AD"), Card("AS"))))
+    ("Label",               "Invalid Three of a Kind"),
+    ("Pair of Twos",        Hand("Player", Set(Card("2H"), Card("2S"), Card("3C"), Card("AD"), Card("KH")))),
+    ("Eight-high Straight", Hand("Player", Set(Card("4H"), Card("5S"), Card("6C"), Card("8D"), Card("7H")))),
+    ("Flush",               Hand("Player", Set(Card("9D"), Card("TD"), Card("JD"), Card("AD"), Card("3D")))),
+    ("Full House",          Hand("Player", Set(Card("TS"), Card("TH"), Card("TC"), Card("AD"), Card("AS"))))
   )
   
   forAll (foursOfAKind) { (label: String, hand: Hand) => {

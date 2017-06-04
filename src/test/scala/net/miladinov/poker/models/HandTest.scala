@@ -20,7 +20,7 @@ class HandTest extends FlatSpec with Matchers with TableDrivenPropertyChecks {
     }
   }}
 
-  val handsAndGroupings = Table(
+  val handsAndValueGroupings = Table(
     ("Hand", "Grouped by Value"),
 
     (Hand("Player", Set(Card("2D"), Card("2C"), Card("2S"), Card("2H"), Card("AC"))), Map[(Value, Int), Set[Card]] (
@@ -48,9 +48,35 @@ class HandTest extends FlatSpec with Matchers with TableDrivenPropertyChecks {
     ))
   )
 
-  forAll (handsAndGroupings) { (hand: Hand, expectedGrouping: Map[(Value, Int), Set[Card]]) => {
+  forAll (handsAndValueGroupings) { (hand: Hand, expectedGrouping: Map[(Value, Int), Set[Card]]) => {
     s"$hand.cardsByValueWithCounts" should s"return `$expectedGrouping`" in {
       hand.cardsByValueWithCounts shouldEqual expectedGrouping
+    }
+  }}
+
+  val handsAndSuitGroupings = Table(
+    ("Hand", "Grouped by Suit"),
+
+    (Hand("Player", Set(Card("2D"), Card("2C"), Card("2S"), Card("2H"), Card("AC"))), Map[(Suit, Int), Set[Card]] (
+      (Clubs, 2)    -> Set(Card("2C"), Card("AC")),
+      (Diamonds, 1) -> Set(Card("2D")),
+      (Spades, 1)   -> Set(Card("2S")),
+      (Hearts, 1)   -> Set(Card("2H"))
+    )),
+
+    (Hand("Player", Set(Card("3H"), Card("5H"), Card("7H"), Card("AC"), Card("QC"))), Map[(Suit, Int), Set[Card]] (
+      (Hearts, 3) -> Set(Card("3H"), Card("5H"), Card("7H")),
+      (Clubs, 2)  -> Set(Card("AC"), Card("QC"))
+    )),
+
+    (Hand("Player", Set(Card("AD"), Card("3D"), Card("4D"), Card("5D"), Card("6D"))), Map[(Suit, Int), Set[Card]] (
+      (Diamonds, 5) -> Set(Card("AD"), Card("3D"), Card("4D"), Card("5D"), Card("6D"))
+    ))
+  )
+
+  forAll (handsAndSuitGroupings) { (hand: Hand, expectedGrouping: Map[(Suit, Int), Set[Card]]) => {
+    s"$hand.cardsBySuitWithCounts" should s"return `$expectedGrouping`" in {
+      hand.cardsBySuitWithCounts shouldEqual expectedGrouping
     }
   }}
 }

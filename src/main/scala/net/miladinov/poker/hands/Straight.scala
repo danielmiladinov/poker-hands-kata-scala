@@ -2,7 +2,8 @@ package net.miladinov.poker.hands
 
 import net.miladinov.poker.models._
 
-object Straight {
+object Straight extends HandSpec {
+  val rank = 5
   def evaluate (hand: Hand): Option[String] = {
     val sorted = hand.cards.toList.sortBy(_.value.intValue)
 

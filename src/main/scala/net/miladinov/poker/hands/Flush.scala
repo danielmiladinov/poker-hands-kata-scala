@@ -2,7 +2,8 @@ package net.miladinov.poker.hands
 
 import net.miladinov.poker.models._
 
-object Flush {
+object Flush extends HandSpec {
+  val rank = 6
   def evaluate (hand: Hand): Option[String] = {
     if (hand.cardsBySuitWithCounts.size == 1) {
       val sorted = hand.cards.toList.sortBy(_.value.intValue)

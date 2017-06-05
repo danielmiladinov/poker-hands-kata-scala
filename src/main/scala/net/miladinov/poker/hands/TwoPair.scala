@@ -2,7 +2,8 @@ package net.miladinov.poker.hands
 
 import net.miladinov.poker.models.Hand
 
-object TwoPair {
+object TwoPair extends HandSpec {
+  val rank = 3
   def evaluate (hand: Hand): Option[String] = {
     val valuesWithCounts = hand.cardsByValueWithCounts.keys
 

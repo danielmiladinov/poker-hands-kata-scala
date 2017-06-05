@@ -33,9 +33,4 @@ object Straight {
   }
 
   private def buildTitle (v: Value): String = s"${v.singular}-high Straight"
-
-  private def monotonicallyAscending (sortedValues: Value*): Boolean = sortedValues.sliding(2).forall({
-    case Seq(lesser, greater) => (greater.intValue - 1) == lesser.intValue
-    case _ => false
-  })
 }
